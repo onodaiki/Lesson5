@@ -87,6 +87,8 @@ open class MainActivity : AppCompatActivity() {
 
             slide_button.setOnClickListener {
                 if(scount%2==0) {
+                    next_button.isEnabled=false
+                    previous_button.isEnabled=false
                     mTimer=Timer()
                     mTimer!!.schedule(object : TimerTask() {
                         override fun run() {
@@ -114,6 +116,8 @@ open class MainActivity : AppCompatActivity() {
                     slide_button.text = "停止"
 
                 }else{
+                    next_button.isEnabled=true
+                    previous_button.isEnabled=true
                     slide_button.text="再生"
                     if (mTimer != null){
                         mTimer!!.cancel()
